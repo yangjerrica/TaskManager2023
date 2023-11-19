@@ -9,16 +9,49 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(to right, #97729d, #8ecdff);
+    background: linear-gradient(to right, #97729d, #93b4cf);
+}
+
+.todolist{
+    position: absolute;
+    left: 15%;
+    top: 10%;
+    transform: translateY(-50%);
+}
+
+.todolist h1{
+    margin: 15px 0;
+    color: #fff;
+}
+.todobox{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    height:30%;
+    width: 20%;
+    color: #fff;
+    background-color: #97729d;
+    margin: 10px auto;
+    text-align: center;
+    align-items: center;
+    
+    display: block;
+    margin-right: 10px;
+
+}
+
+.outputbox{
+    margin-left: 10px;
 }
 
 nav{
+
     height: 100%;
     width: 13%;
     position: fixed;
     top:0px;
     left: 0px;
-    background-color: #805037;
+    background-color: #755645;
     overflow-x: hidden;
     
     margin: 0px auto;
@@ -178,18 +211,17 @@ nav{
     top: 0; */
     width: 100px;
     height: 100px;
-    background-color: #3498db; /* Blue color, change as needed */
+    background-color: #207cb9; /* Blue color, change as needed */
     border-top: 250px solid #fff;
     border-right: 250px solid transparent;
     border-bottom: 250px solid #fff;
     border-left: 250px solid #fff;
     border-radius: 55%;
-    align-items: center;
-    justify-content: center;
+    
     bottom: 200px;
     right: 350px;
     left: 500px;
-    position: fixed;
+    position: absolute;
     
 }
 
@@ -224,4 +256,47 @@ nav{
 .input-box {
     position: relative;
     width: 10px;
+}
+
+.time{
+    /* position: absolute;
+    font-size: 24px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    
+    transform: translateY(-50%); */
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    margin: 15% auto;
+            
+}
+
+.timeplace{
+    
+    
+    width: 200px;
+    height: 200px;
+    
+    position: fixed;
+    top:25px;
+    right: 125px;
+    background-color: transparent;
+    overflow-x: hidden;
+    
+    margin: 0px auto;
+    z-index: 1;
+    justify-content: center;
+    display: block;
+
+    border: 10px solid #19384d;
+    border-radius: 50%;
+    
+}
+
+.time ul li{
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
 }

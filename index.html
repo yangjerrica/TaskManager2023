@@ -1,101 +1,226 @@
 <html>
-    <head>
-        <title>TODO List</title>
-        <link rel="stylesheet" href="Styles/style.css">
-    </head>
-    <body>
-        <div class = "main">
-            <nav>
-                <div class = "logo">
-                    <img src="images/dog.png">
-                </div>
-                <div class ="nav-links">
-                    <ul>
-                        <li><a href = "index.html">Home</a></li>
-                        <li><a href = "application.html">Applications</a></li>
-                        <li><a href = "TODO.html">TO DO List</a></li>
-                        <li><a href = "MyProfile.html">My Profile</a></li>
-                        <li><a href = "login.html">Login/Sign up</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="information">
-                <div class="overlay"></div>
-                <div id="circle">
-                    <div class="feature one">
-                        <img src="images/camera.png">
-                        <div>
-                            <h2>Current Progress</h2>
-                            <p>What have I applied</p>
-                        </div>
-                    </div>
-                    <div class="feature two">
-                        <!-- <img src="images/processor.png"> -->
-                        <div>
-                            <h2>What Next</h2>
-                            <p>Important calendar for students</p>
-                        </div>
-                    </div>
-                    <div class="feature three">
-                        <!-- <img src="images/display.png"> -->
-                        <div>
-                            <h2>School Information</h2>
-                            <p>Schools you plan to apply</p>
-                        </div>
-                    </div>
-                    <div class="feature four">
-                        <!-- <img src="images/battery.png"> -->
-                        <div>
-                            <h2>Confidence Rate</h2>
-                            <p>dream school? safety schools?</p>
-                        </div>
-                    </div>
-                </div>
+
+<head>
+    <title>TODO List</title>
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+
+<body>
+    <div class="main">
+        <nav>
+            <div class="logo">
+                <img src="images/dog.png">
             </div>
-            <div class="controls">
-                <img src="images/arrow.png" id = "upBtn">
-                <h3>Features</h3>
-                <img src="images/arrow.png" id = 'downBtn'>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="application.html">Applications</a></li>
+                    <li><a href="TODO.html">TO DO List</a></li>
+                    <li><a href="MyProfile.html">My Profile</a></li>
+                    <li><a href="login.html">Login/Sign up</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="information">
+
+            <div class="overlay"></div>
+            <div id="circle">
+                <div class="feature one">
+                    <img src="images/camera.png">
+                    <div>
+                        <h2>Current Progress</h2>
+                        <p>What have I applied</p>
+                    </div>
+                </div>
+                <div class="feature two">
+                    <!-- <img src="images/processor.png"> -->
+                    <div>
+                        <h2>What Next</h2>
+                        <p>Important calendar for students</p>
+                    </div>
+                </div>
+                <div class="feature three">
+                    <!-- <img src="images/display.png"> -->
+                    <div>
+                        <h2>School Information</h2>
+                        <p>Schools you plan to apply</p>
+                    </div>
+                </div>
+                <div class="feature four">
+                    <!-- <img src="images/battery.png"> -->
+                    <div>
+                        <h2>Confidence Rate</h2>
+                        <p>dream school? safety schools?</p>
+                    </div>
+                </div>
 
             </div>
         </div>
+        <div class="controls">
+            <img src="images/arrow.png" id="upBtn">
+            <h3>Features</h3>
+            <img src="images/arrow.png" id='downBtn'>
 
-        <script>
-            var circle = document.getElementById("circle");
-            var upBtn = document.getElementById("upBtn");
-            var downBtn = document.getElementById("downBtn");
-            
-            var rotateValue = circle.style.transform;
-            var rotateSum;
+        </div>
 
-            upBtn.onclick = function()
-            {
-                rotateSum = rotateValue + "rotate(-90deg)";
-                circle.style.transform = rotateSum;
-                rotateValue = rotateSum;
+        <div class="todolist">
+            <h1>TO DO LIST:</h1>
+
+        </div>
+
+        <div class="todobox">
+            <form id="userForm">
+                <label for="sentenceInput">New task:<br></label>
+                <input type="text" id="sentenceInput" name="sentence" placeholder="Type your task here!">
+
+                <button type="button" onclick="addTask()">Add Task</button>
+            </form>
+
+            <div id="output">
+                <!-- Tasks will be added here dynamically -->
+            </div>
+            <button type="button" onclick="removeCheckedTasks()">I have finished these tasks!</button>
+        </div>
+        <div class="timeplace">
+            <div class="time">
+                <ul>
+                    <li> Clock
+                        <div id="clock"></div>
+                    </li>
+                    <li>
+                        <div id="timer"></div>
+                    </li>
+                </ul>
+        
+            </div>
+            <button onclick="startTimer()">Start Timer</button>
+            <button onclick="stopTimer()">Stop Timer</button>
+            <button onclick="resetTimer()">Reset Timer</button>
+        </div>
+        
+
+    </div>
+
+    <script>
+        var circle = document.getElementById("circle");
+        var upBtn = document.getElementById("upBtn");
+        var downBtn = document.getElementById("downBtn");
+
+        var rotateValue = circle.style.transform;
+        var rotateSum;
+
+        upBtn.onclick = function () {
+            rotateSum = rotateValue + "rotate(-90deg)";
+            circle.style.transform = rotateSum;
+            rotateValue = rotateSum;
+        }
+
+        downBtn.onclick = function () {
+            rotateSum = rotateValue + "rotate(90deg)";
+            circle.style.transform = rotateSum;
+            rotateValue = rotateSum;
+        }
+
+        function addTask() {
+            var userInput = document.getElementById('sentenceInput').value;
+            if (userInput.trim() !== '') {
+                var outputDiv = document.getElementById('output');
+
+                // Create a new task div
+                var taskDiv = document.createElement('div');
+                taskDiv.className = 'task';
+
+                // Create a checkbox
+                var checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.className = 'task-checkbox';
+
+                // Create a span for the user input
+                var userInputSpan = document.createElement('span');
+                userInputSpan.textContent = userInput;
+
+                // Append checkbox and user input to the task div
+                taskDiv.appendChild(checkbox);
+                taskDiv.appendChild(userInputSpan);
+
+                // Append the task div to the output div
+                outputDiv.appendChild(taskDiv);
+
+                // Clear the input field
+                document.getElementById('sentenceInput').value = '';
             }
+        }
+        function removeCheckedTasks() {
+            var outputDiv = document.getElementById('output');
+            var tasks = outputDiv.getElementsByClassName('task');
 
-            downBtn.onclick = function()
-            {
-                rotateSum = rotateValue + "rotate(90deg)";
-                circle.style.transform = rotateSum;
-                rotateValue = rotateSum;
+            // Loop through tasks in reverse order to avoid issues with removing elements
+            for (var i = tasks.length - 1; i >= 0; i--) {
+                var checkbox = tasks[i].querySelector('.task-checkbox');
+                if (checkbox.checked) {
+                    outputDiv.removeChild(tasks[i]);
+                }
             }
+        }
 
-            function openNav() 
-            {
-                document.getElementById("sidenav").style.width = "250px";
-                document.getElementById("close-button").style.display = "block";
-                document.getElementById("open-button").style.display = "none";
-            }
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
 
-            function closeNav() 
-            {
-                document.getElementById("sidenav").style.width = "0";
-                document.getElementById("close-button").style.display = "none";
-                document.getElementById("open-button").style.display = "block";
-            }
-        </script>    
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-    </body>
+            var timeString = hours + ":" + minutes + ":" + seconds;
+
+            document.getElementById('clock').innerHTML = timeString;
+
+            setTimeout(updateClock, 1000);
+        }
+
+        // Timer
+        var timerSeconds = 0;
+        var timerInterval;
+
+        function startTimer() {
+            timerInterval = setInterval(function () {
+                timerSeconds++;
+                updateTimer();
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+        function resetTimer() {
+            timerSeconds = 0;
+            updateTimer();
+        }
+
+        function updateTimer() {
+            var minutes = Math.floor(timerSeconds / 60);
+            var seconds = timerSeconds % 60;
+
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            var timeString = minutes + ":" + seconds;
+
+            document.getElementById('timer').innerHTML = 'Timer ' + timeString;
+        }
+    </script>
+
+   
+
+    <script>
+        // Initialize clock and timer
+        updateClock();
+        updateTimer();
+    </script>
+
+</body>
+
 </html>
