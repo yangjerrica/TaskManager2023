@@ -1,4 +1,4 @@
-### Hi my name is Jen 👋
+### Hackathon Project- Jerrica Yang Steven Tsai
 
 <!--
 **yangjerrica/yangjerrica** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
