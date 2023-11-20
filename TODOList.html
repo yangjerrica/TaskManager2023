@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="Styles/style.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <div class="main">
-        
+        <audio class = "youtube" id="musicPlayer" controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        </audio>
         <nav>
             <div class="logo">
                 <img src="images/dog.png">
@@ -57,13 +60,13 @@
                         <!-- Add more label options as needed -->
                     </select>
                 
-                    <label for="dueDateInput">Due Date:</label>
+                    <label for="dueDateInput"><br><br>Due Date:</label>
                     <input type="text" id="dueDateInput" placeholder="Select due date" required>
                     
                     <!-- Calendar icon for due date -->
                     <img src="https://jqueryui.com/resources/demos/datepicker/images/calendar.gif" alt="Calendar" id="calendarIcon">
                 
-                    <label for="importanceDropdown"><br><br>Label:</label>
+                    <label for="importanceDropdown"><br><br>Importance:</label>
                     <select id="importanceDropdown" required>
                         <option value="kinda">Kinda</option>
                         <option value="super">Super</option>
@@ -104,19 +107,23 @@
             $("#dueDateInput").datepicker("show");
         });
     });
-
+    var taskValue 
+    var labelValue 
+    var dueDateValue
+    var importanceValue
+    var prioritizeValue
     function submitFormData() {
-        var taskValue = document.getElementById('taskInput').value;
-        var labelValue = document.getElementById('labelDropdown').value;
-        var dueDateValue = document.getElementById('dueDateInput').value;
-        var importanceValue = document.getElementById('importanceDropdown').value;
+        taskValue = document.getElementById('taskInput').value;
+        labelValue = document.getElementById('labelDropdown').value;
+        dueDateValue = document.getElementById('dueDateInput').value;
+        importanceValue = document.getElementById('importanceDropdown').value;
 
         
 
         // Get prioritize value
-        var prioritizeCheckbox = document.querySelector('input[type="checkbox"][value="true"]');
-        var prioritizeValue = prioritizeCheckbox ? prioritizeCheckbox.checked : false;
-        var todayDate = new Date().toLocaleDateString();
+        prioritizeCheckbox = document.querySelector('input[type="checkbox"][value="true"]');
+        prioritizeValue = prioritizeCheckbox ? prioritizeCheckbox.checked : false;
+        todayDate = new Date().toLocaleDateString();
 
         // Validate form fields
         if (!taskValue || !labelValue || !dueDateValue) {
@@ -163,5 +170,37 @@
         });}
 </script>
 
+<script>
+    var musicPlayer = document.getElementById('musicPlayer');
+
+    // You can use JavaScript to control the player programmatically
+    function playMusic() {
+        musicPlayer.play();
+    }
+
+    function pauseMusic() {
+        musicPlayer.pause();
+    }
+
+    function setVolume(volume) {
+        musicPlayer.volume = volume;
+    }
+
+    function updateProgressBar() {
+        var progressBar = document.getElementById('progressBar');
+        var progress = (musicPlayer.currentTime / musicPlayer.duration) * 100;
+        progressBar.value = progress;
+    }
+
+    function seekTo(position) {
+        var seekTime = (position / 100) * musicPlayer.duration;
+        musicPlayer.currentTime = seekTime;
+    }
+
+    musicPlayer.addEventListener('timeupdate', updateProgressBar);
+
+    // You can add more functionality as needed
+
+</script>
 
 </html>

@@ -74,16 +74,16 @@
 
         <div class="todobox">
             <form id="userForm">
-                <label for="sentenceInput">New task:<br></label>
-                <input type="text" id="sentenceInput" name="sentence" placeholder="Type your task here!">
+                <label for="sentenceInput">Memo:<br></label>
+                <input type="text" id="sentenceInput" name="sentence" placeholder="Thoughts...">
 
-                <button type="button" onclick="addTask()">Add Task</button>
+                <button type="button" onclick="addTask()">Add Memo</button>
             </form>
 
             <div id="output">
                 <!-- Tasks will be added here dynamically -->
             </div>
-            <button type="button" onclick="removeCheckedTasks()">I have finished these tasks!</button>
+            <button type="button" onclick="removeCheckedTasks()">Remove memo!</button>
         </div>
         <div class="timeplace">
             <div class="time">
@@ -226,6 +226,8 @@
         updateClock();
         updateTimer();
     </script>
+
+    
 
 </body>
 
