@@ -64,6 +64,7 @@ nav{
 }
 .nav-links{
     flex: 1;
+    margin: 125 auto;
     text-align: center;
     align-items: center;
 }
@@ -377,5 +378,14 @@ nav{
 .anya img{
    width:110%;
    height: auto;
-   margin: 280 auto;
+   margin: 10 auto;
+   position: absolute;
 }
+
+.peanut img{
+    width:50%;
+    height: auto;
+    margin: 100 50;
+    z-index: 1;
+    
+ }
