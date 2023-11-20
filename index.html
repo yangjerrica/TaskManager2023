@@ -1,7 +1,9 @@
 <html>
 
 <head>
-    <title>TODO List</title>
+    
+    <title>Priority List</title>
+    <link rel ='icon' type="images/x-icon" href = "images/dog.png">
     <link rel="stylesheet" href="Styles/style.css">
 </head>
 
@@ -15,7 +17,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <!-- <li><a href="application.html">Applications</a></li> -->
-                    <li><a href="TODO.html">TO DO List</a></li>
+                    <li><a href="TODOList.html">TO DO List</a></li>
                     <li><a href="MyProfile.html">Motivational Boost!</a></li>
                     <!--<li><a href="login.html">Login/Sign up</a></li> -->
                 </ul>
@@ -28,7 +30,9 @@
                 <div class="feature one">
                     <img src="images/camera.png">
                     <div>
-                        <h2>Current Progress</h2>
+                        <h2><div> hi
+                            <!-- Tasks will be added here dynamically -->
+                        </div></h2>
                         <p>What have I applied</p>
                     </div>
                 </div>
@@ -58,7 +62,7 @@
         </div>
         <div class="controls">
             <img src="images/arrow.png" id="upBtn">
-            <h3>Features</h3>
+            <h3>Tasks</h3>
             <img src="images/arrow.png" id='downBtn'>
 
         </div>
@@ -91,7 +95,7 @@
                         <div id="timer"></div>
                     </li>
                 </ul>
-                <button onclick="startTimer()">Start</button>
+            <button onclick="startTimer()">Start</button>
             <button onclick="stopTimer()">Stop</button>
             <button onclick="resetTimer()">Reset </button>
         
@@ -126,6 +130,7 @@
             var userInput = document.getElementById('sentenceInput').value;
             if (userInput.trim() !== '') {
                 var outputDiv = document.getElementById('output');
+                
 
                 // Create a new task div
                 var taskDiv = document.createElement('div');

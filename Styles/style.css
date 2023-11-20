@@ -178,7 +178,7 @@ nav{
 
 .controls{
     position: absolute;
-    right: 25%;
+    right: 28%;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -300,4 +300,65 @@ nav{
     font-size: 24px;
     font-family: 'Arial', sans-serif;
     padding: 15px 10px 6px 10px;
+}
+
+.template-todo{
+    width: 400;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Viewport height */
+    margin: 100 300;
+    z-index: 1;
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    border: 10px solid #19384d;
+
+}
+
+.template-todo form label{
+    padding: 15px 10px 6px 0px;
+    font-size: 20;
+}
+
+.template-todo form fieldset legend{
+    padding: 15px 10px 6px 0px;
+    font-size: 20;
+}
+
+.template-todo form button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #1e4a67;
+    /* Change as needed */
+    color: #fff;
+    /* Change as needed */
+    border: none;
+    outline: none;
+    margin: 30 auto;
+}
+
+.table_todo{
+    width: 500;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Viewport height */
+    margin: 100 800;
+    
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    position: absolute;
+
+    border: 10px solid #19384d;
+}
+
+.table_todo form{
+    width: 3000;
 }

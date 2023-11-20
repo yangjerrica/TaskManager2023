@@ -1,12 +1,14 @@
-from flask import Flask, jsonify
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/api/todo', methods=['GET'])
-def get_todo_list():
-    # Your logic to retrieve TODO list data
-    todo_list = ["Task 1", "Task 2", "Task 3"]
-    return jsonify({"todoList": todo_list})
+@app.route('/')
+def index():
+    # Your Python logic goes here
+    message = "Hello from Python!"
+
+    # Render HTML template and pass the message variable
+    return render_template('index.html', message=message)
 
 if __name__ == '__main__':
     app.run(debug=True)
