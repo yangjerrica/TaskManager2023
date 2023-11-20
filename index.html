@@ -9,6 +9,9 @@
 
 <body>
     <div class="main">
+        <audio class = "youtube-main" id="musicPlayer" controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        </audio>
         <nav>
             <div class="logo">
                 <img src="images/dog.png">
@@ -18,10 +21,11 @@
                     <li><a href="index.html">Home</a></li>
                     <!-- <li><a href="application.html">Applications</a></li> -->
                     <li><a href="TODOList.html">TO DO List</a></li>
-                    <li><a href="MyProfile.html">Motivational Boost!</a></li>
+                    <!-- <li><a href="MyProfile.html">Motivational Boost!</a></li> -->
                     <!--<li><a href="login.html">Login/Sign up</a></li> -->
                 </ul>
             </div>
+            <div class="anya"><img src="images/Anya-PNG-Image.png"></div>
         </nav>
         <div class="information">
 
@@ -30,31 +34,30 @@
                 <div class="feature one">
                     <img src="images/camera.png">
                     <div>
-                        <h2><div> hi
-                            <!-- Tasks will be added here dynamically -->
-                        </div></h2>
-                        <p>What have I applied</p>
+                        <h2>Albert Einstein
+                            </h2>
+                        <p>Information is not knowledge.</p>
                     </div>
                 </div>
                 <div class="feature two">
                     <!-- <img src="images/processor.png"> -->
                     <div>
-                        <h2>What Next</h2>
-                        <p>Important calendar for students</p>
+                        <h2>Eren Yeager</h2>
+                        <p>I'm not gonna die here</p>
                     </div>
                 </div>
                 <div class="feature three">
                     <!-- <img src="images/display.png"> -->
                     <div>
-                        <h2>School Information</h2>
-                        <p>Schools you plan to apply</p>
+                        <h2>Anya Forger</h2>
+                        <p>Waku waku!</p>
                     </div>
                 </div>
                 <div class="feature four">
                     <!-- <img src="images/battery.png"> -->
                     <div>
-                        <h2>Confidence Rate</h2>
-                        <p>dream school? safety schools?</p>
+                        <h2>Uncle Roger</h2>
+                        <p>I'm already married to my work</p>
                     </div>
                 </div>
 
@@ -68,7 +71,7 @@
         </div>
 
         <div class="todolist">
-            <h1>TOP PRIORITIES:</h1>
+            <h1>Remeber that...</h1>
 
         </div>
 
@@ -227,7 +230,37 @@
         updateTimer();
     </script>
 
-    
+<script>
+    var musicPlayer = document.getElementById('musicPlayer');
+
+    // You can use JavaScript to control the player programmatically
+    function playMusic() {
+        musicPlayer.play();
+    }
+
+    function pauseMusic() {
+        musicPlayer.pause();
+    }
+
+    function setVolume(volume) {
+        musicPlayer.volume = volume;
+    }
+
+    function updateProgressBar() {
+        var progressBar = document.getElementById('progressBar');
+        var progress = (musicPlayer.currentTime / musicPlayer.duration) * 100;
+        progressBar.value = progress;
+    }
+
+    function seekTo(position) {
+        var seekTime = (position / 100) * musicPlayer.duration;
+        musicPlayer.currentTime = seekTime;
+    }
+
+    musicPlayer.addEventListener('timeupdate', updateProgressBar);
+
+
+</script>
 
 </body>
 
