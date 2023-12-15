@@ -1,5 +1,8 @@
 ### Hackathon Project- Jerrica Yang Steven Tsai
 
+This project is built during NW Hacks November, 2023. It is mainly used as a task manager website to help students manage their daily tasks and focus on their to-do list.
+We hope to make a more powerful/ fulfilling website that can be used in student's every-day life.
+
 <!--
 **yangjerrica/yangjerrica** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
